@@ -1,0 +1,26 @@
+PODS:
+  - BATabBarController (0.1.4):
+    - Masonry
+  - Charts (3.0.2):
+    - Charts/Core (= 3.0.2)
+  - Charts/Core (3.0.2)
+  - CircleMenu (2.0.5)
+  - CSV.swift (2.0.1)
+  - Masonry (1.0.2)
+
+DEPENDENCIES:
+  - BATabBarController
+  - Charts
+  - CircleMenu (~> 2.0.1)
+  - CSV.swift (~> 2.0)
+
+SPEC CHECKSUMS:
+  BATabBarController: 7bd7a21d65a1df9f08586adb17622da1c58f44a5
+  Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
+  CircleMenu: 7cef16b4401de5b545e5f06d720cb202ec64800d
+  CSV.swift: b3b6390c1674982fd0086e96939360094dcdd402
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+
+PODFILE CHECKSUM: 847e550e5fdabe3ff2f8258e3733e17502e1156d
+
+COCOAPODS: 1.2.1
