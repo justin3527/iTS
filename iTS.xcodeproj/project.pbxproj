@@ -23,6 +23,15 @@
 		4A0CBD121F70EF0100C6E18D /* LogListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CBD111F70EF0100C6E18D /* LogListViewController.swift */; };
 		4A552E4C1F6BD6FB009BB9AD /* MenuTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A552E4B1F6BD6FB009BB9AD /* MenuTabBarViewController.swift */; };
 		4A552E4E1F6BD8FE009BB9AD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A552E4D1F6BD8FE009BB9AD /* MainViewController.swift */; };
+		4A5682131FD66C8B00E02D5A /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5682121FD66C8B00E02D5A /* Common.swift */; };
+		4A5682151FD6701300E02D5A /* SaveResourceLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5682141FD6701300E02D5A /* SaveResourceLog.swift */; };
+		4A5682171FD6704600E02D5A /* ResourceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5682161FD6704600E02D5A /* ResourceInfo.swift */; };
+		4A5682191FD671EE00E02D5A /* SaveFileList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5682181FD671EE00E02D5A /* SaveFileList.swift */; };
+		4A56821B1FD6735F00E02D5A /* BackgroundTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A56821A1FD6735F00E02D5A /* BackgroundTask.swift */; };
+		4A56821D1FD6744100E02D5A /* PlayFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A56821C1FD6744100E02D5A /* PlayFunc.m */; };
+		4A5682201FD675E800E02D5A /* SaveScreenLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A56821F1FD675E800E02D5A /* SaveScreenLog.swift */; };
+		4A5682251FD6872F00E02D5A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5682241FD6872F00E02D5A /* AppDelegate.m */; };
+		4A5682271FD6873A00E02D5A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5682261FD6873A00E02D5A /* main.m */; };
 		4A7FADF51F9B170B00FCDB4A /* iMonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FADF41F9B170B00FCDB4A /* iMonUtils.m */; };
 		4A7FADF71F9B172B00FCDB4A /* ChartsGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FADF61F9B172B00FCDB4A /* ChartsGraph.swift */; };
 		4A983B971F6BC9EC00DADD3A /* recordFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A983B961F6BC9EC00DADD3A /* recordFunc.m */; };
@@ -44,8 +53,6 @@
 		787859FC1CD0CC2900D5818D /* libstdc++.6.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 787859FA1CD0CC2900D5818D /* libstdc++.6.tbd */; };
 		787859FD1CD0CC2900D5818D /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 787859FB1CD0CC2900D5818D /* libstdc++.tbd */; };
 		788B2CA61CD19E1900667F89 /* IDFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 788B2CA41CD19E1900667F89 /* IDFileManager.m */; };
-		789024FC1CD04D0900BA55DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 789024FB1CD04D0900BA55DC /* main.m */; };
-		789024FF1CD04D0900BA55DC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 789024FE1CD04D0900BA55DC /* AppDelegate.m */; };
 		789025021CD04D0900BA55DC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 789025011CD04D0900BA55DC /* ViewController.m */; };
 		789025051CD04D0900BA55DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 789025031CD04D0900BA55DC /* Main.storyboard */; };
 		789025071CD04D0900BA55DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 789025061CD04D0900BA55DC /* Assets.xcassets */; };
@@ -92,6 +99,17 @@
 		4A13ECED1F6A6137007693CB /* iTS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iTS-Bridging-Header.h"; sourceTree = "<group>"; };
 		4A552E4B1F6BD6FB009BB9AD /* MenuTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTabBarViewController.swift; sourceTree = "<group>"; };
 		4A552E4D1F6BD8FE009BB9AD /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		4A5682121FD66C8B00E02D5A /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		4A5682141FD6701300E02D5A /* SaveResourceLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveResourceLog.swift; sourceTree = "<group>"; };
+		4A5682161FD6704600E02D5A /* ResourceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceInfo.swift; sourceTree = "<group>"; };
+		4A5682181FD671EE00E02D5A /* SaveFileList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFileList.swift; sourceTree = "<group>"; };
+		4A56821A1FD6735F00E02D5A /* BackgroundTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTask.swift; sourceTree = "<group>"; };
+		4A56821C1FD6744100E02D5A /* PlayFunc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayFunc.m; sourceTree = "<group>"; };
+		4A56821E1FD6745E00E02D5A /* PlayFunc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayFunc.h; sourceTree = "<group>"; };
+		4A56821F1FD675E800E02D5A /* SaveScreenLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveScreenLog.swift; sourceTree = "<group>"; };
+		4A5682231FD6872F00E02D5A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4A5682241FD6872F00E02D5A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4A5682261FD6873A00E02D5A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4A7FADF31F9B170B00FCDB4A /* iMonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iMonUtils.h; sourceTree = "<group>"; };
 		4A7FADF41F9B170B00FCDB4A /* iMonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iMonUtils.m; sourceTree = "<group>"; };
 		4A7FADF61F9B172B00FCDB4A /* ChartsGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsGraph.swift; sourceTree = "<group>"; };
@@ -121,9 +139,6 @@
 		788B2CA41CD19E1900667F89 /* IDFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDFileManager.m; path = AirPlay/IDFileManager.m; sourceTree = "<group>"; };
 		788B2CA51CD19E1900667F89 /* IDFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDFileManager.h; path = AirPlay/IDFileManager.h; sourceTree = "<group>"; };
 		789024F71CD04D0900BA55DC /* iTS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTS.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		789024FB1CD04D0900BA55DC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		789024FD1CD04D0900BA55DC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		789024FE1CD04D0900BA55DC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		789025001CD04D0900BA55DC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		789025011CD04D0900BA55DC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		789025041CD04D0900BA55DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -200,6 +215,14 @@
 				4A7FADF31F9B170B00FCDB4A /* iMonUtils.h */,
 				4A7FADF41F9B170B00FCDB4A /* iMonUtils.m */,
 				4A7FADF61F9B172B00FCDB4A /* ChartsGraph.swift */,
+				4A5682121FD66C8B00E02D5A /* Common.swift */,
+				4A5682141FD6701300E02D5A /* SaveResourceLog.swift */,
+				4A5682161FD6704600E02D5A /* ResourceInfo.swift */,
+				4A5682181FD671EE00E02D5A /* SaveFileList.swift */,
+				4A56821A1FD6735F00E02D5A /* BackgroundTask.swift */,
+				4A56821C1FD6744100E02D5A /* PlayFunc.m */,
+				4A56821E1FD6745E00E02D5A /* PlayFunc.h */,
+				4A56821F1FD675E800E02D5A /* SaveScreenLog.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -284,8 +307,8 @@
 		789024F91CD04D0900BA55DC /* iTS */ = {
 			isa = PBXGroup;
 			children = (
-				789024FD1CD04D0900BA55DC /* AppDelegate.h */,
-				789024FE1CD04D0900BA55DC /* AppDelegate.m */,
+				4A5682231FD6872F00E02D5A /* AppDelegate.h */,
+				4A5682241FD6872F00E02D5A /* AppDelegate.m */,
 				4A13ECED1F6A6137007693CB /* iTS-Bridging-Header.h */,
 				4A7FADF21F9B16C700FCDB4A /* Util */,
 				4A0C3D2F1F720B3400325466 /* resource */,
@@ -306,7 +329,7 @@
 		789024FA1CD04D0900BA55DC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				789024FB1CD04D0900BA55DC /* main.m */,
+				4A5682261FD6873A00E02D5A /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -637,8 +660,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A5682271FD6873A00E02D5A /* main.m in Sources */,
 				4A0CBD0E1F70EED100C6E18D /* AllocatorViewController.swift in Sources */,
 				4A983B991F6BCB4A00DADD3A /* TestViewController.swift in Sources */,
+				4A5682191FD671EE00E02D5A /* SaveFileList.swift in Sources */,
 				4A0CBD101F70EEEE00C6E18D /* RecordingViewController.swift in Sources */,
 				4A7FADF71F9B172B00FCDB4A /* ChartsGraph.swift in Sources */,
 				4A0CBD0C1F70EE8E00C6E18D /* ResourceViewController.swift in Sources */,
@@ -649,12 +674,17 @@
 				4AA1D1D91F73A7CA007D81C0 /* TestScrollViewController.swift in Sources */,
 				787859D31CD0A93C00D5818D /* CSScreenRecorder.m in Sources */,
 				788B2CA61CD19E1900667F89 /* IDFileManager.m in Sources */,
-				789024FF1CD04D0900BA55DC /* AppDelegate.m in Sources */,
 				4A552E4C1F6BD6FB009BB9AD /* MenuTabBarViewController.swift in Sources */,
-				789024FC1CD04D0900BA55DC /* main.m in Sources */,
+				4A56821B1FD6735F00E02D5A /* BackgroundTask.swift in Sources */,
+				4A5682131FD66C8B00E02D5A /* Common.swift in Sources */,
 				4A983B971F6BC9EC00DADD3A /* recordFunc.m in Sources */,
+				4A5682201FD675E800E02D5A /* SaveScreenLog.swift in Sources */,
+				4A5682251FD6872F00E02D5A /* AppDelegate.m in Sources */,
+				4A5682151FD6701300E02D5A /* SaveResourceLog.swift in Sources */,
 				4ABF44041F725D0E00279297 /* TestCollectionViewController.swift in Sources */,
+				4A5682171FD6704600E02D5A /* ResourceInfo.swift in Sources */,
 				787859D41CD0A93C00D5818D /* Utilities.m in Sources */,
+				4A56821D1FD6744100E02D5A /* PlayFunc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -837,6 +867,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = YES;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 3LKUPW7U8G;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/iTS/fat/include";
@@ -871,6 +902,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = YES;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 3LKUPW7U8G;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/iTS/fat/include";

@@ -11,42 +11,21 @@ import UIKit
 import Charts
 class ChartsGraph{
     
-    var frame:CGRect!
     
-    init(_ newFrame:CGRect){
-        self.frame = newFrame
-    }
-    
-    
-    func basePieGraph()->PieChartView{
+    func setBarGraph(frame:CGRect, datas:[Double], labels:[String], colors:[NSUIColor], groupEntryCount gCount:Int = 1)->BarChartView{
         
-        let pieView = PieChartView(frame: self.frame)
+        let barView = BarChartView(frame: frame)
         
-        pieView.backgroundColor = UIColor.white
-        pieView.chartDescription?.text = ""
-        
-        return pieView
-    }
-    
-    func baseBarGraph()->BarChartView{
-        
-        let barView = BarChartView(frame: self.frame)
-        
+        barView.data = self.setBarData(datas: datas, labels: labels,colors: colors, groupEntryCount: gCount)
         barView.rightAxis.enabled = false
         barView.xAxis.enabled = false
-        barView.backgroundColor = UIColor.white
         barView.chartDescription?.text = ""
         barView.animate(yAxisDuration: 1)
         
         return barView
     }
     
-    func baseLineGraph() -> LineChartView{
-        let lineView = LineChartView(frame: self.frame)
-        return lineView
-    }
-    
-    func setBarGraphView(datas:[Double], labels:[String], groupEntryCount gCount:Int = 1) ->BarChartView{
+    func setBarData(datas:[Double], labels:[String], colors:[NSUIColor],groupEntryCount gCount:Int = 1) ->BarChartData{
         
         var dataSets : [BarChartDataSet] = []
         
@@ -63,46 +42,68 @@ class ChartsGraph{
             }
             
             let dataSet = BarChartDataSet(values: dataEntries, label: labels[lblCount])
-            dataSet.colors = ChartColorTemplates.colorful()
+            
+            if gCount < 2{
+                dataSet.colors = [colors[i-1]]
+                
+            }else{
+                dataSet.colors = colors
+            }
+            
             dataSets.append(dataSet)
             lblCount += 1
             
         }
         
-        let chartData = BarChartData(dataSets: dataSets)
-        let barView = self.baseBarGraph()
-        barView.data = chartData
+        return BarChartData(dataSets: dataSets)
         
-        return barView
+        
         
     }
     
     
-    func setPieGraphView(datas:[Double], labels:[String]) -> PieChartView{
+    func setPieGraph(frame:CGRect, datas:[Double], labels:[String], colors:[NSUIColor])->PieChartView{
+        
+        let pieView = PieChartView(frame: frame)
+        pieView.data = self.setPieData(datas: datas, labels: labels, colors: colors)
+
+        pieView.chartDescription?.text = ""
+        
+        return pieView
+    }
+    
+    func setPieData(datas:[Double], labels:[String], colors:[NSUIColor]) -> PieChartData{
         
         var total = 0.0;
         
         for i in 0..<datas.count{
             total += datas[i]
+            print(datas[i])
         }
-        
+
         var dataEntries : [PieChartDataEntry] = []
         
         for i in 0..<datas.count{
             let entry = PieChartDataEntry(value: datas[i]/total*100, label: labels[i])
+           
             dataEntries.append(entry)
         }
         
-        
         let chartDataSet = PieChartDataSet(values: dataEntries, label: "")
-        chartDataSet.colors = ChartColorTemplates.colorful()
-        let chartData = PieChartData(dataSet: chartDataSet)
+        chartDataSet.colors = colors
+        return PieChartData(dataSet: chartDataSet)
         
-        let pieView = self.basePieGraph()
-        pieView.data = chartData
-        
-        return pieView
     }
+
+    
+    
+    
+    func baseLineGraph(frame:CGRect) -> LineChartView{
+        let lineView = LineChartView(frame: frame)
+        return lineView
+    }
+
+    
     
     func setLineGraphData(datas:[[Double]], labels:[String], colors:[UIColor]) -> LineChartData{
         
