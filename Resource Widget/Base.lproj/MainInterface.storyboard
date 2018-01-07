@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Today View Controller-->
+        <scene sceneID="cwh-vc-ff4">
+            <objects>
+                <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="Resource_Widget" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="390"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qHY-kO-WJS">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="72e-PN-gpj">
+                                <rect key="frame" x="0.0" y="120" width="320" height="30"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="KSY-bJ-fI3">
+                                        <rect key="frame" x="62" y="1" width="197" height="29"/>
+                                        <segments>
+                                            <segment title="Wi-Fi"/>
+                                            <segment title="Cellular"/>
+                                            <segment title="Local"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="trafficGraphTypeWithSender:" destination="M4Y-Lb-cyx" eventType="valueChanged" id="Ndq-gB-gIe"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="KSY-bJ-fI3" secondAttribute="bottom" constant="1" id="0Cx-M2-TGE"/>
+                                    <constraint firstItem="KSY-bJ-fI3" firstAttribute="top" secondItem="72e-PN-gpj" secondAttribute="top" constant="1" id="3gJ-PL-IvE"/>
+                                    <constraint firstItem="KSY-bJ-fI3" firstAttribute="centerX" secondItem="72e-PN-gpj" secondAttribute="centerX" id="NTg-3k-qYj"/>
+                                    <constraint firstAttribute="trailing" secondItem="KSY-bJ-fI3" secondAttribute="trailing" constant="61" id="cpZ-RM-Vgg"/>
+                                    <constraint firstItem="KSY-bJ-fI3" firstAttribute="leading" secondItem="72e-PN-gpj" secondAttribute="leading" constant="62" id="wcn-Gd-0Mn"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VmE-hH-aFf">
+                                <rect key="frame" x="0.0" y="270" width="320" height="120"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m7J-JG-9xZ">
+                                <rect key="frame" x="0.0" y="150" width="320" height="120"/>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="72e-PN-gpj" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="1WH-tu-HJc"/>
+                            <constraint firstItem="m7J-JG-9xZ" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="203-aM-o9I"/>
+                            <constraint firstItem="m7J-JG-9xZ" firstAttribute="top" secondItem="72e-PN-gpj" secondAttribute="bottom" id="4V5-5U-pH0"/>
+                            <constraint firstItem="VmE-hH-aFf" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="6qy-l4-mSA"/>
+                            <constraint firstItem="72e-PN-gpj" firstAttribute="top" secondItem="qHY-kO-WJS" secondAttribute="bottom" id="Bjo-Rp-DAm"/>
+                            <constraint firstItem="m7J-JG-9xZ" firstAttribute="top" secondItem="72e-PN-gpj" secondAttribute="bottom" id="CmV-FR-kPc"/>
+                            <constraint firstItem="VmE-hH-aFf" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="Emx-Td-Ies"/>
+                            <constraint firstItem="72e-PN-gpj" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="MrF-6O-zkQ"/>
+                            <constraint firstItem="72e-PN-gpj" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" constant="120" id="Srk-hW-XeW"/>
+                            <constraint firstItem="qHY-kO-WJS" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="cEh-6H-wUe"/>
+                            <constraint firstItem="VmE-hH-aFf" firstAttribute="bottom" secondItem="ssy-KU-ocm" secondAttribute="bottom" id="ePS-NO-nDX"/>
+                            <constraint firstItem="VmE-hH-aFf" firstAttribute="top" secondItem="m7J-JG-9xZ" secondAttribute="bottom" id="hKC-Wl-VLJ"/>
+                            <constraint firstItem="qHY-kO-WJS" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="iDq-Iq-apW"/>
+                            <constraint firstItem="72e-PN-gpj" firstAttribute="top" secondItem="qHY-kO-WJS" secondAttribute="bottom" id="iM8-Zr-Pq1"/>
+                            <constraint firstItem="72e-PN-gpj" firstAttribute="trailing" secondItem="ssy-KU-ocm" secondAttribute="trailing" id="iag-fm-jmL"/>
+                            <constraint firstItem="VmE-hH-aFf" firstAttribute="trailing" secondItem="ssy-KU-ocm" secondAttribute="trailing" id="mCW-9K-xf1"/>
+                            <constraint firstItem="qHY-kO-WJS" firstAttribute="trailing" secondItem="ssy-KU-ocm" secondAttribute="trailing" id="o9G-du-hX6"/>
+                            <constraint firstItem="qHY-kO-WJS" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="qLG-f7-csx"/>
+                            <constraint firstItem="VmE-hH-aFf" firstAttribute="top" secondItem="m7J-JG-9xZ" secondAttribute="bottom" id="sQN-Z2-b8h"/>
+                            <constraint firstItem="m7J-JG-9xZ" firstAttribute="trailing" secondItem="ssy-KU-ocm" secondAttribute="trailing" id="szv-Aa-EhZ"/>
+                            <constraint firstItem="VmE-hH-aFf" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" constant="270" id="tj4-Xd-QfU"/>
+                            <constraint firstItem="m7J-JG-9xZ" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" constant="150" id="uGb-U0-KBe"/>
+                            <constraint firstItem="m7J-JG-9xZ" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="yPp-eR-8Qt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="390"/>
+                    <connections>
+                        <outlet property="cpuGraphView" destination="qHY-kO-WJS" id="qga-M9-ozu"/>
+                        <outlet property="memoryGraphView" destination="VmE-hH-aFf" id="QHa-wX-YOc"/>
+                        <outlet property="trafficGraphView" destination="m7J-JG-9xZ" id="KVb-ks-2UE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.59999999999999" y="133.13343328335833"/>
+        </scene>
+    </scenes>
+</document>
