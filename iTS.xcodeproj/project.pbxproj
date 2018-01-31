@@ -495,12 +495,12 @@
 				TargetAttributes = {
 					4AE214871FEB91F10067D0D9 = {
 						CreatedOnToolsVersion = 9.2;
-						DevelopmentTeam = 3LKUPW7U8G;
+						DevelopmentTeam = 7ZQN626C5J;
 						ProvisioningStyle = Automatic;
 					};
 					789024F61CD04D0900BA55DC = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 3LKUPW7U8G;
+						DevelopmentTeam = 7ZQN626C5J;
 						LastSwiftMigration = 0830;
 					};
 					7890250F1CD04D0900BA55DC = {
@@ -882,7 +882,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3LKUPW7U8G;
+				DEVELOPMENT_TEAM = 7ZQN626C5J;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "Resource Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
@@ -918,7 +918,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3LKUPW7U8G;
+				DEVELOPMENT_TEAM = 7ZQN626C5J;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "Resource Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
@@ -1047,7 +1047,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 3LKUPW7U8G;
+				DEVELOPMENT_TEAM = 7ZQN626C5J;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/iTS/fat/include";
 				INFOPLIST_FILE = iTS/Base.lproj/Info.plist;
@@ -1083,7 +1083,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 3LKUPW7U8G;
+				DEVELOPMENT_TEAM = 7ZQN626C5J;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/iTS/fat/include";
 				INFOPLIST_FILE = iTS/Base.lproj/Info.plist;
