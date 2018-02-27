@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Charts
+//메모리 과부화 뷰를 관리하는 컨트롤러
 class AllocatorViewController : UIViewController{
     
     @IBOutlet var memoryView : UIView!
@@ -29,13 +30,13 @@ class AllocatorViewController : UIViewController{
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        currentAddMem.text = "\(rc.additionalAllocMem)MB"
+        currentAddMem.text = "\(rc.additionalAllocMem)MB" // 현재 추가로 할당된 데이터 화면에 표시
         currentSetAllocMemory  = rc.additionalAllocMem
         currentAllocMemIndex = 0
         myChart = ChartsGraph()
         self.setMemoryChart()
         
-        if rc.additionalAllocMem == 0{
+        if rc.additionalAllocMem == 0{ // 할당된 메모리가 없을 경우 메모리 초기화, 감소 버튼 비활성화
             self.changeBtnState(self.freeBtn)
             self.changeBtnState(self.refreshBtn)
         }
@@ -43,7 +44,7 @@ class AllocatorViewController : UIViewController{
         
     }
     
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning() { // 메모리 위험 경고 시 얼럿
         self.common.basicAalert(title: "Warnning",msg: "memory is already full",target: self)
     }
     
@@ -66,12 +67,16 @@ class AllocatorViewController : UIViewController{
         self.view.addSubview(pieView)
     }
     
+    //추가할 메모리 양을 세그먼트컨트롤러로 관리하기 위한 메소드
+    
     @IBAction func ChangeAllocMemSize(sender : UISegmentedControl){
         self.currentAllocMemIndex = sender.selectedSegmentIndex
         print(currentAllocMemIndex)
         
     }
     
+    
+    //메모리 추가 시 동작하는 메소드
     @IBAction func addMemory(){
         if !freeBtn.isEnabled{
             print("dimmed")
@@ -81,9 +86,10 @@ class AllocatorViewController : UIViewController{
         allocMem(Int32(memoryList[currentAllocMemIndex]))
         currentSetAllocMemory = currentSetAllocMemory + memoryList[currentAllocMemIndex]
         currentAddMem.text = "\(currentSetAllocMemory!)MB"
-        self.refreshChart()
+        self.refreshChart() // 차트 새로 고침
     }
     
+    //메모리 해제시 동작하는 메소드
     @IBAction func freeMemory(){
         
         if currentSetAllocMemory > 0
@@ -108,6 +114,7 @@ class AllocatorViewController : UIViewController{
         
     }
     
+    // 할당된 메모리 초기화 메소드
     @IBAction func freeAllMemory(){
         freeAllMem()
         currentAddMem.text = "0MB"
@@ -118,13 +125,14 @@ class AllocatorViewController : UIViewController{
     }
     
     
-    
+    // 그래프 새로고침 메소드
     func refreshChart(){
         self.pieChart.removeFromSuperview()
         self.setMemoryChart()
         
     }
     
+    //버튼 활성화 및 비활성화 시 상태 변경을 위한 메소드
     func changeBtnState(_ btn:UIButton){
         print(btn.alpha)
         print(btn.isEnabled)
@@ -139,6 +147,7 @@ class AllocatorViewController : UIViewController{
         print("============")
     }
     
+    // 세그먼트 동작으로 초기화면으로 돌아가기 위한 메소드
     @IBAction func backToMain(){
         rc.additionalAllocMem = self.currentSetAllocMemory
         self.dismiss(animated: true, completion: nil)

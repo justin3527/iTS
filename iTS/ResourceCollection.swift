@@ -8,6 +8,7 @@
 
 import Foundation
 
+// 시간정보를 타이머의 시간 변화를 HH:MM:SS로 표기화기 위한 구조체
 struct timeInfo {
     var hourValue : Int = 0
     var minValue : Int = 0
@@ -28,15 +29,16 @@ struct timeInfo {
     
 }
 
+// 기록되는 리소스 데이터들을 싱글톤 패턴의 클래스로 관리하여 모든 뷰에서 일관성 있게 데이터를 나타낼 수 있게 하기 위해 구현한 클래스
 class ResourceCollection{
     static let sharedResource = ResourceCollection()
     
     var resourses:[ResourceInfo] = []
     var time = timeInfo()
     let common = Common()
-    var isRecording = false
-    var additionalAllocMem = 0
-    let maxViewDataCount = 300
+    var isRecording = false // 로그 레코딩 중일 경우를 체크 하기 위함
+    var additionalAllocMem = 0 // 메모리 과부하 시 추가된 메모리 정보를 담는 변수
+    let maxViewDataCount = 300 // 그래프에 보여줄 최대 데이터 갯수
     
     private init(){}
     
@@ -47,7 +49,7 @@ class ResourceCollection{
     }
     
     @objc func getResource(){
-        if isRecording{
+        if isRecording{ //레코딩 시 레코딩 시간을 체크 하기 위함
             self.time.secValue += 1
         }
         
@@ -56,7 +58,7 @@ class ResourceCollection{
         
     }
     
-    
+    // 레코딩 시간을 반환함
     func getRunningTime()->String{
         
         time.timeEncoding()
@@ -90,7 +92,7 @@ class ResourceCollection{
         
         return "\(hourString):\(minString):\(secString)"
     }
-    
+    //레코딩 시간 초기화
     func resetRecordTime(){
         self.time.hourValue = 0
         self.time.minValue = 0
@@ -98,7 +100,7 @@ class ResourceCollection{
         
     }
     
-    
+    // 기록하고 있는 CPU 데이터 값을 반환하는 메소드
     func getRecordCPU()->[[Double]]{
         var cpu0s:[Double] = []
         var cpu1s:[Double] = []
@@ -117,7 +119,7 @@ class ResourceCollection{
         return [cpu0s, cpu1s]
         
     }
-    
+    // 기록하고 있는 메모리 데이터 값을 반환하는 메소드
     func getRecordMem(type:String = "record")->[[Double]]{
         var totalMems:[Double] = []
         var wireMems:[Double] = []
@@ -141,7 +143,7 @@ class ResourceCollection{
             userMems.append(resourses[i].userMem)
             physicalMems.append(resourses[i].physicalMem)
         }
-        
+        //사용되는 곳에 따라 리턴 해줄 데이터를 분리
         switch type {
         case "resource" :
             return [freeMems, activeMems, inactiveMems, wireMems]
@@ -152,7 +154,7 @@ class ResourceCollection{
         }
         
     }
-    
+    // 기록하고 있는 트래픽 데이터 값을 반환하는 메소드
     func getRecordTraffic(type:String = "all")->[[Double]]{
         var wifiRxs:[Double] = []
         var wifiTxs:[Double] = []
@@ -175,7 +177,7 @@ class ResourceCollection{
             localRxs.append(Double(resourses[i].localRx))
             localTxs.append(Double(resourses[i].localTx))
         }
-        
+        //원하는 데이터만 리털해주기 위해서 분리
         switch type {
         case "wifi":
             return [wifiRxs, wifiTxs]

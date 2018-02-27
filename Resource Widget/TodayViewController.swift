@@ -11,6 +11,9 @@ import NotificationCenter
 import Foundation
 import Charts
 
+// 위젯에 리소스 그래프를 보여주는 뷰의 컨트롤러
+// ResourceViewController에서 CPU, 메모리, 트래픽 그래프 부분만 이용
+// 위젯은 본래 앱과 별개로 동작하는 하나의 앱으로 간주해야함
 class TodayViewController: UIViewController, NCWidgetProviding {
     
     @IBOutlet var cpuGraphView : UIView!
@@ -44,6 +47,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // Dispose of any resources that can be recreated.
     }
     
+    //위젯 영역을 새로 열었을 때 동작하는 메소드
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
         
@@ -136,7 +140,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     
     
-    
+    // 위젯의 간략하게 보기 / 더보기시 위젯 영역을 높이를 변경하기 위한 메소드
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         if activeDisplayMode == NCWidgetDisplayMode.compact{
             self.preferredContentSize = maxSize

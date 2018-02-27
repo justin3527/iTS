@@ -8,6 +8,10 @@
 
 import Foundation
 import AVFoundation
+
+// 백그라운드 동작을 위한 클래스
+// appDelegate에서 사용
+
 @objc(BackgroundTask)
 class BackgroundTask :NSObject{
     

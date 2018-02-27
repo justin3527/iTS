@@ -11,33 +11,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="VVc-Ee-keN">
-            <objects>
-                <viewController storyboardIdentifier="LaunchVC" id="Sod-Je-bZJ" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="iol-eO-FuR"/>
-                        <viewControllerLayoutGuide type="bottom" id="gzm-iG-Bh6"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="RXD-W5-Ikk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_main" translatesAutoresizingMaskIntoConstraints="NO" id="qmY-eR-rPl">
-                                <rect key="frame" x="157" y="303" width="60" height="60"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.94509803921568625" green="0.66274509803921566" blue="0.058823529411764705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="qmY-eR-rPl" firstAttribute="centerY" secondItem="RXD-W5-Ikk" secondAttribute="centerY" id="2rD-8Y-vWC"/>
-                            <constraint firstItem="qmY-eR-rPl" firstAttribute="centerX" secondItem="RXD-W5-Ikk" secondAttribute="centerX" id="SxJ-no-xup"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Vf0-cT-HxH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1645" y="2874"/>
-        </scene>
         <!--Delegate-->
         <scene sceneID="DAH-4z-PPH">
             <objects>
@@ -840,7 +813,6 @@
     <resources>
         <image name="add.png" width="64" height="64"/>
         <image name="icon_back" width="26" height="26"/>
-        <image name="icon_main" width="60" height="60"/>
         <image name="mynus2.png" width="64" height="64"/>
         <image name="play" width="48" height="48"/>
         <image name="pulse_64.png" width="64" height="64"/>

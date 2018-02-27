@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Charts
 
+// 현재 리소스 정보를 보여주는 뷰를 관리하는 컨트롤러
 class ResourceViewController : UIViewController{
 
     //CPU label
@@ -77,10 +78,12 @@ class ResourceViewController : UIViewController{
         isUpdate = true
         self.updataData()
         
+        //배터리 변화 관측을 위한 옵져버
         NotificationCenter.default.addObserver(self, selector: #selector(self.batteryStateDidChange(notification:)), name: NSNotification.Name.UIDeviceBatteryStateDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.batteryLevelDidChange(notification:)), name: NSNotification.Name.UIDeviceBatteryLevelDidChange, object: nil)
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updataData), userInfo: nil, repeats: true)
         
+        // 메인화면으로 이동 후 재 진입시에도 레코딩 정보를 계속 노출하기 위해 예외처리
         if rc.isRecording{
             playBtn.isEnabled = false
         }
@@ -90,6 +93,7 @@ class ResourceViewController : UIViewController{
         
     }
     
+    // 타이머를 이용하여 데이터를 업데이트하기 위해 업데이트할 정보를 한 메소드에 통합
     func updataData(){
         self.getResource()
         self.setResourceDataToLabel()
@@ -102,6 +106,7 @@ class ResourceViewController : UIViewController{
        
     }
     
+    //다바이스 정보 탭의 레이블에 데이터 입력
     func setDeviceDataToLabel(){
         dName_Lbl.text = UIDevice.current.name
         dId_Lbl.text =  UIDevice.current.modelName
@@ -121,6 +126,7 @@ class ResourceViewController : UIViewController{
         getMemory()
     }
     
+    // 리소스 탭에 데이터를 입력
     func setResourceDataToLabel(){
         //set CPU data
         cpu0_Lbl.text = String(currentCPU.core0)
@@ -140,11 +146,13 @@ class ResourceViewController : UIViewController{
         total_Lbl.text = String(format:"%.1f% %MB", currentMemory.total)
     }
 
-    
+    // cpu 그래프를 만들고 화면에 노출
     func setCPUGraphView(){
         let datas = rc.getRecordCPU()
         let labels = ["CPU #0","CPU #1"]
         let colors = [NSUIColor(red: 41/255.0, green: 111/255.0, blue: 232/255.0, alpha: 1.0), NSUIColor(red: 41/255.0, green: 196/255.0, blue: 232/255.0, alpha: 1.0)]
+       
+        //초기 한번만 그래프를 초기화 및 생성 하고 이 후에는 데이터만 업데이트
         if !isUpdate{
             self.cpuGraph = myChart.baseLineGraph(frame: cpuGraphView.bounds)
             self.cpuGraph.data = myChart.setLineGraphData(datas: datas, labels: labels, colors: colors)
@@ -156,6 +164,8 @@ class ResourceViewController : UIViewController{
         
         }
     
+    // 트래픽은 종류가 많기 때문에 세그먼트 컨트롤러 보여줄 그래프를 선택할 수 있게 구현함
+    // 선택한 그래프 정보를 업데이트하기 위한 메소드
     @IBAction func trafficGraphType(sender : UISegmentedControl){
         
         switch sender.selectedSegmentIndex{
@@ -171,9 +181,12 @@ class ResourceViewController : UIViewController{
         setTrafficsGraphView()
     }
     
+    // 트래픽 그래프를 만들고 화면에 노출
     func setTrafficsGraphView(){
         let datas = rc.getRecordTraffic(type : trafficType)
             let labels = ["RX", "TX"]
+        
+        //초기 한번만 그래프를 초기화 및 생성 하고 이 후에는 데이터만 업데이트
         if !isUpdate{
             self.trafficGraph = myChart.baseLineGraph(frame: trafficGraphView.bounds)
             self.trafficGraph.data = myChart.setLineGraphData(datas: datas, labels: labels, colors: ChartColorTemplates.colorful())
@@ -185,7 +198,7 @@ class ResourceViewController : UIViewController{
         
         
     }
-    
+    // 메모리 그래프를 만들고 화면에 노출
     func setMemoryGraphView(){
         let datas = rc.getRecordMem(type : "resource")
         let labels = ["free","active","inactive","wired"]
@@ -195,7 +208,7 @@ class ResourceViewController : UIViewController{
                       NSUIColor(red: 255/255.0, green: 208/255.0, blue: 140/255.0, alpha: 1.0),
                       NSUIColor(red: 140/255.0, green: 234/255.0, blue: 255/255.0, alpha: 1.0),
                       NSUIColor(red: 255/255.0, green: 140/255.0, blue: 157/255.0, alpha: 1.0)]
-        
+        //초기 한번만 그래프를 초기화 및 생성 하고 이 후에는 데이터만 업데이트
         if !isUpdate{
             self.memoryGraph = myChart.baseLineGraph(frame: memoryGraphView.bounds)
             self.memoryGraph.data = myChart.setLineGraphData(datas: datas, labels: labels, colors: colors)
@@ -205,7 +218,7 @@ class ResourceViewController : UIViewController{
             self.memoryGraph.data = myChart.setLineGraphData(datas: datas, labels: labels, colors: colors)
         }
     }
-    
+    // 배터리 그래프를 만들고 화면에 노출
     func setBatteryGraphView(){
         
         let currentBty = UIDevice.current.batteryLevel*100
@@ -233,8 +246,9 @@ class ResourceViewController : UIViewController{
         
         batteryGraphView.addSubview(batteryGraph)
     }
-    
+    // 디스크그래프를 만들고 화면에 노출
     func setDiskGraphView(){
+        //오픈 소스를 이용하여 시스템 디스크 정보를 얻어옴
         var systemSize: Int64? {
             guard let systemAttributes = try? FileManager.default.attributesOfFileSystem(forPath: NSHomeDirectory() as String),
                 let totalSize = (systemAttributes[.systemSize] as? NSNumber)?.int64Value else {
@@ -263,6 +277,7 @@ class ResourceViewController : UIViewController{
         
     }
     
+    // 그래프를 초기화하고 업데이트메소드를 하나의 메소드로 통합
     func setGraphs(){
         self.setCPUGraphView()
         self.setTrafficsGraphView()
@@ -274,6 +289,7 @@ class ResourceViewController : UIViewController{
         
     }
     
+    // 배터리 충전 상태 변화 시 값 변 경을 위한 메소드
     func batteryStateDidChange(notification: NSNotification){
         // The stage did change: plugged, unplugged, full charge...
         print(UIDevice.current.batteryState)
@@ -295,7 +311,9 @@ class ResourceViewController : UIViewController{
         
         batteryGraph.centerText = batteryState
     }
-    
+    // 배터리 값 변경 시 값을 업데이트하기 위한 메소드
+    // 배터리 값이 변할 때 마다 그래프를 업데이트 해줌
+
     func batteryLevelDidChange(notification: NSNotification){
         // The battery's level did change (98%, 99%, ...)
         print(UIDevice.current.batteryLevel)
@@ -307,15 +325,16 @@ class ResourceViewController : UIViewController{
         
     }
     
-    
+        // 로그 레코딩 시작 시 동작하는 메소드
         @IBAction func playResourceRecordLog(){
     
+            //파일명을 입력받기 위한 얼럿 노출
             let alert = UIAlertController(title: "Input Log File Name", message: "Input Log File Name", preferredStyle: UIAlertControllerStyle.alert)
             alert.addTextField(configurationHandler: {(tf) in
                 tf.placeholder = "FileName"
             })
     
-    
+            // 얼럿에서 확인 버튼 클릭 시 레코딩 동작(시작 인덱스만 기록)
             let okBtn = UIAlertAction(title: "Start", style: .default){
                 (_) in
                 self.fileName = (alert.textFields?[0].text)!
@@ -335,6 +354,7 @@ class ResourceViewController : UIViewController{
     
         }
     
+        // 레코딩 스탑 버튼 클릭 시 동작하는 메소드로 스탑 인덱스를 설정하고 시작 인덱스와 스탑 인덱스의 사이 데이터를 엑셀파일에다가 기록
         @IBAction func stopResourceRecordLog(){
             playBtn.isEnabled = true
             stopBtn.isEnabled = false
@@ -346,18 +366,18 @@ class ResourceViewController : UIViewController{
             
         }
     
-    
+    // 레코딩 유무를 변경하기 위한 메소드
     func changeRecordState(){
         rc.isRecording = !rc.isRecording
     }
  
-    
+    // 세그먼트를 이용하여 메인뷰로 돌가기 위한 메소드
     @IBAction func backToMain(){
         timer.invalidate()
         self.dismiss(animated: true, completion: nil)
     }
 }
-
+//디바이스 코드 네임을 우리가 아는 기기명으로 변경해서 보여주기 위함
 public extension UIDevice {
     
     var modelName: String {
